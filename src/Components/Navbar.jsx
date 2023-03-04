@@ -1,31 +1,40 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-// import { unstable_HistoryRouter, useHistory } from 'react-router-dom';
-
-const Navbar = ({ onSearchChange, onSearchSubmit }) => {
-
+import React from 'react'
+import { Flex, Image } from "@chakra-ui/react";
+// import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
     
 
+// import { unstable_HistoryRouter, useHistory } from 'react-router-dom';
+
+const Navbar = () => {
+
+    const navigate = useNavigate();
+
   return (
-    <nav>
-        <ul>
-            <li>
+    <>
+        <Flex
+        bg="teal"
+        color={"white"}
+        align="center"
+        justify="space-between"
+        px={["1", "1", "7", "10"]}
+        fontSize={["14px", "14px", "19px", "20px"]}
+        py="4"
+        >
+            
                 <Link to="/">Home</Link>
-            </li>
-            <li>
-                <Link to="/category/electronics">Electronics</Link>
-            </li>
-            <li>
-                <Link to="/category/clothing">Clothing</Link>
-            </li>
-            <li>
-                <form onSubmit={onSearchSubmit}>
+            
+                <Link to="/category/electronics" />
+            
+                <Link to="/category/clothing" />
+           
+                {/* <form onSubmit={onSearchSubmit}>
                     <input type="text" onChange={(e) => onSearchChange(e.target.value)} />
                     <button type="submit">Search</button>
-                </form>
-            </li>
-        </ul>
-    </nav>
+                </form> */}
+                <Link to="/search" >Search</Link>
+        </Flex>
+    </>
   )
 }
 
